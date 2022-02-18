@@ -1,9 +1,6 @@
 package com.springframework.sfgdi;
 
-import com.springframework.sfgdi.controllers.ConstructorInjectedController;
-import com.springframework.sfgdi.controllers.I18nController;
-import com.springframework.sfgdi.controllers.MyController;
-import com.springframework.sfgdi.controllers.SetterInjectedController;
+import com.springframework.sfgdi.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -13,6 +10,10 @@ public class SfgDiApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(SfgDiApplication.class, args);
+
+		System.out.println("----------Pet controller");
+		PetController petController = (PetController) ctx.getBean("petController");
+		System.out.println(petController.whichPetIsTheBest());
 
 		System.out.println("---------Default profile");
 		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
