@@ -1,6 +1,7 @@
 package com.springframework.sfgdi;
 
 import com.springframework.sfgdi.controllers.ConstructorInjectedController;
+import com.springframework.sfgdi.controllers.I18nController;
 import com.springframework.sfgdi.controllers.MyController;
 import com.springframework.sfgdi.controllers.SetterInjectedController;
 import org.springframework.boot.SpringApplication;
@@ -12,6 +13,10 @@ public class SfgDiApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(SfgDiApplication.class, args);
+
+		System.out.println("---------Default profile");
+		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+		System.out.println(i18nController.sayHello());
 
 
 		System.out.println("--------Primary BEAN");
