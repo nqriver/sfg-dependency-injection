@@ -1,6 +1,7 @@
 package com.springframework.sfgdi;
 
 import com.springframework.sfgdi.controllers.*;
+import com.springframework.sfgdi.datasource.FakeDataSource;
 import com.springframework.sfgdi.services.PrototypeBean;
 import com.springframework.sfgdi.services.SingletonBean;
 import org.springframework.boot.SpringApplication;
@@ -47,6 +48,13 @@ public class SfgDiApplication {
 		PrototypeBean prototypeBean1 = ctx.getBean(PrototypeBean.class);
 		PrototypeBean prototypeBean2 = ctx.getBean(PrototypeBean.class);
 		System.out.println(prototypeBean2.getMyScope());
+
+		//Properties
+		FakeDataSource fakeDataSource = ctx.getBean(FakeDataSource.class);
+		System.out.println(fakeDataSource.getJdbcUrl());
+		System.out.println(fakeDataSource.getUsername());
+		System.out.println(fakeDataSource.getPassword());
+
 	}
 
 }
