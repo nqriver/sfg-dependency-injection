@@ -1,17 +1,18 @@
 package com.springframework.sfgdi.config;
 
 import com.springframework.sfgdi.datasource.FakeDataSource;
-import com.springframework.sfgdi.pets.CatPetService;
 import com.springframework.sfgdi.pets.PetService;
 import com.springframework.sfgdi.pets.PetServiceFactory;
 import com.springframework.sfgdi.repositories.EnglishGreetingRepository;
 import com.springframework.sfgdi.repositories.EnglishGreetingRepositoryImpl;
 import com.springframework.sfgdi.services.*;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.*;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Profile;
 
 
-@PropertySource("classpath:datasource.properties")
 @Configuration
 public class GreetingServiceConfig {
 
