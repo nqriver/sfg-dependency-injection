@@ -6,21 +6,23 @@ import com.springframework.sfgdi.pets.PetServiceFactory;
 import com.springframework.sfgdi.repositories.EnglishGreetingRepository;
 import com.springframework.sfgdi.repositories.EnglishGreetingRepositoryImpl;
 import com.springframework.sfgdi.services.*;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 
 
+@EnableConfigurationProperties(FakeDataConstructorConfiguration.class)
 @Configuration
 public class GreetingServiceConfig {
 
     @Bean
-    FakeDataSource fakeDataSource(FakeDataConfiguration fakeDataConfiguration) {
+    FakeDataSource fakeDataSource(FakeDataConstructorConfiguration fakeDataConstructorConfiguration) {
         FakeDataSource fakeDataSource = new FakeDataSource();
-        fakeDataSource.setUsername(fakeDataConfiguration.getUsername());
-        fakeDataSource.setPassword(fakeDataConfiguration.getPassword());
-        fakeDataSource.setJdbcUrl(fakeDataConfiguration.getJdbcUrl());
+        fakeDataSource.setUsername(fakeDataConstructorConfiguration.getUsername());
+        fakeDataSource.setPassword(fakeDataConstructorConfiguration.getPassword());
+        fakeDataSource.setJdbcUrl(fakeDataConstructorConfiguration.getJdbcUrl());
         return fakeDataSource;
     }
 

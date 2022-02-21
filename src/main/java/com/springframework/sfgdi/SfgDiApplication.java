@@ -1,5 +1,6 @@
 package com.springframework.sfgdi;
 
+import com.springframework.sfgdi.config.FakeDataConstructorConfiguration;
 import com.springframework.sfgdi.controllers.*;
 import com.springframework.sfgdi.datasource.FakeDataSource;
 import com.springframework.sfgdi.services.PrototypeBean;
@@ -54,6 +55,13 @@ public class SfgDiApplication {
 		System.out.println(fakeDataSource.getJdbcUrl());
 		System.out.println(fakeDataSource.getUsername());
 		System.out.println(fakeDataSource.getPassword());
+
+		//Constructor config
+		System.out.println("----Constructor configuration");
+		FakeDataConstructorConfiguration fakeDataConstructorConfiguration = ctx.getBean(FakeDataConstructorConfiguration.class);
+		System.out.println(fakeDataConstructorConfiguration.getUsername());
+		System.out.println(fakeDataConstructorConfiguration.getPassword());
+		System.out.println(fakeDataConstructorConfiguration.getJdbcUrl());
 
 	}
 
